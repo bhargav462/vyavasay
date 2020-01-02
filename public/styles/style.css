@@ -20,7 +20,7 @@ header h1{
 }
 
 body{
-    background-image: url("../images/download\ \(1\).jfif");
+    background-image: url("../images/bgd1.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -131,7 +131,7 @@ input{
     display: block;
     width: 50%;
     padding: 8px;
-    border: 1px solid grey;
+    border: 1px solid black;
     border-radius: 5px;
 }
 
@@ -144,6 +144,11 @@ input{
     width: 20px;
     border-radius: 50%;
     box-shadow: 6px 6px 29px -4px rgba(0,0,0,0.75);
+}
+
+label{
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .close-reg{
@@ -162,4 +167,7 @@ input{
     width: 60px;
 } 
 
+span{
+    font-weight: bold; 
+}
 

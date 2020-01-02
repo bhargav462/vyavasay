@@ -3,7 +3,7 @@ var config = require('./config/config');
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-var utlencodedParser = bodyParser.urlencoded({extended:true});
+var urlencodedParser = bodyParser.urlencoded({extended:true});
 const _ = require('lodash');
 const hbs = require('hbs');
 const path = require('path');
@@ -27,30 +27,38 @@ app.get('/',(req,res) => {
     console.log('Rendering the front page');
 });
 
-// app.post('/add',(req,res) => {
-//     var body = _.pick(req.body,['userName','password']);
-//     var newUser = new user(body);
+app.post('/add',urlencodedParser,(req,res) => {
+    console.log("cheking");
+    var body = _.pick(req.body,['Name','AadharNo','phoneNo','password']);
+    body.phoneNo = parseInt(body.phoneNo,10);
+    var newUser = new user(body);
+    console.log(req.body);
+    newUser.save().then(() => {
+        console.log('data was added successfully');
+        res.send('done');
+    }).catch((e) => {
+        console.log('User already exists or An error has occured');
+        // res.sendStatus(404).send(e);
+        res.send(e);
+    });
+});
 
-//     newUser.save().then(() => {
-//         console.log('data was added successfully');
-//         res.render('index.html');
-//     }).catch((e) => {
-//         console.log('User already exists');
-//         res.sendStatus(404).send(e);
-//     });
-// });
-
-// app.post('/check',(req,res) => {
-//     user.findOne({userName:req.body.userName,password:req.body.password}).then((user1) => {
-//         if(!user1){
-//             res.sendStatus(400).send("No user found");
-//         }else{
-//             res.send(user1);
-//         }
-//     }).catch((e) => {
-//         res.sendStatus(404).send(e);
-//     });
-// });
+app.post('/check',urlencodedParser,(req,res) => {
+    console.log('In');
+    console.log(req.body);
+    user.findOne({AadharNo:req.body.AadharNo,password:req.body.password}).then((user1) => {
+        if(!user1){
+            console.log("No user");
+            res.send("No user found");
+        }else{
+            console.log("user");
+            res.send(user1);
+        }
+    }).catch((e) => {
+        console.log("error");
+        res.sendStatus(404).send(e);
+    });
+});
 
 app.listen(3001,() => {
     console.log(`Server is up on port ${3001}`);
