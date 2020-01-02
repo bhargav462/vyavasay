@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./styles/indexs.css">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"> -->
+    <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
+    <title>Form</title>
+</head>
+<body>
+    <header>
+        <h1>Vyavasay</h1>
+        <!-- <nav>
+            <ul>
+                <li>
+                    <a href="#" >Home</a>
+                    <a href="#" >Register</a>
+                </li>
+            </ul>
+        </nav> -->
+
+        <!-- <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'Home')">Home</button>
+            <button class="tablinks" onclick="openCity(event, 'About')">About</button>
+          </div>    
+
+        <div id="Home" class="tabcontent">
+            <h3>Home</h3>
+            <p>Home is the capital city of England.</p>
+          </div>
+          
+          <div id="About" class="tabcontent">
+            <h3>About</h3>
+            <p>About is the capital of France.</p> 
+          </div>
+         -->
+    </header>
+
+    <div class="testbox">
+      <form action="/">
+        <div class="banner">
+          <h1>Crop Noting Form</h1>
+        </div>
+        <!-- <div class="item">
+          <p>Select Course Date</p>
+          <input type="date" name="bdate" required/>
+          <i class="fas fa-calendar-alt"></i>
+        </div> -->
+        <div class="item">
+          <p>Farmer Name</p>
+          <div class="name-item">
+            <input type="text" name="name" placeholder="Enter the name"/>
+          </div>
+        </div>
+        <div class="item">
+          <p>Email</p>
+          <input type="email" name="email" placeholder="Enter the email"/>
+         </div>
+         <div class="item">
+            <p>Crop Area</p>
+            <input type="text" name="name" placeholder="Enter the crop area"/>
+          </div>
+        <div class="item">
+          <p>Phone</p>
+          <input type="number" name="phone" />
+        </div>
+        <div class="item">
+            <p>Soil Type</p>
+            <select name="soil">
+                <option value="Alluvium">Alluvium Soil</option>  
+                <option value="Black">Black soil</option>
+                <option value="Red">Red soil</option>
+                <option value="Yellow">Yellow soil</option>
+                <option value="Laterite">Laterite soil</option>
+                <option value="Arial">Arial soil</option>
+                <option value="Forest">Forest soil</option>
+                <option value="Mountain">Mountain soil</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Previous crop</p>
+            <select name="Pre" id="">
+                <option value="Tobacco">Tobacco</option>
+                <option value="Cotton">Cotton</option>
+                <option value="Rice">Rice</option>
+                <option value="Ground Nut">Ground Nut</option>
+                <option value="Sugarcane">Sugarcane</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Ragi">Ragi</option>
+                <option value="Potatoes">Potatoes</option>
+                <option value="Pulses">Pulses</option>
+                <option value="Vegetables">Vegetables</option>
+                <option value="Rubber">Rubber</option>
+                <option value="Coffee">Coffee</option>
+                <option value="Corn">Corn</option>
+                <option value="Millers">Millers</option>
+                <option value="Barley">Barley</option>
+                <option value="Tea">Tea</option>
+                <option value="Coffee">Coffee</option>
+                <option value="tropical Fruits"></option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Nutrition Content</p>
+            <select name="Nutrients" id="">
+                <option value="Phosphorus">Phosphorus</option>
+                <option value="Potassium">Potassium</option>
+                <option value="Calcium">Calcium</option>
+                <option value="Magnesium">Magnesium</option>
+                <option value="Sulphur">Sulphur</option>
+                <option value="Zinc">Zinc</option>
+                <option value="Copper">Copper</option>
+                <option value="Iron">Iron</option>
+                <option value="Manganese">Manganese</option>
+                <option value="Boron">Boron</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Water Availability</p>
+            <input type="number" name="water" />
+        </div>
+        <div class="item">
+            <p>Crop Season</p>
+            <select name="season" id="">
+                <option value="Kharif">Kharif</option>
+                <option value="Rabi">Rabi</option>
+                <option value="Zind">Zind</option>
+            </select>
+        </div>
+        <div class="item">
+            <p>Biometric id</p>
+            <input type="number" name="biometric" maxlength="5"/>
+        </div>
+        <!-- <div class="question">
+          <p>Gender</p>
+          <div class="question-answer">
+            <div>
+              <input type="radio" value="none" id="radio_1" name="gender"/>
+              <label for="radio_1" class="radio"><span>Male</span></label>
+            </div>
+            <div>
+              <input type="radio" value="none" id="radio_2" name="gender"/>
+              <label for="radio_2" class="radio"><span>Female</span></label>
+            </div>
+          </div>
+        </div> -->
+          <!-- <div class="item">
+            <p>Language</p>
+            <input type="text" name="language"/>
+          </div> -->
+        <!-- <div class="item">
+          <p>Address</p>
+          <input type="text" name="name" placeholder="Street address" required/>
+          <input type="text" name="name" placeholder="Street address line 2" required/>
+          <div class="city-item">
+            <input type="text" name="name" placeholder="City" required/>
+            <input type="text" name="name" placeholder="Region" required/>
+            <input type="text" name="name" placeholder="Postal / Zip code" required/>
+            <select required>
+              <option value="">Country</option>
+              <option value="1">Russia</option>
+              <option value="2">Germany</option>
+              <option value="3">France</option>
+              <option value="4">Armenia</option>
+              <option value="5">USA</option>
+            </select>
+          </div> -->
+        <!-- </div> -->
+        <!-- <div class="item">
+          <p>Experience in Yoga</p>
+          <textarea rows="3"></textarea>
+        </div> -->
+        <!-- <div class="item">
+          <p>Illness (if any)</p>
+          <input type="text" name="illness" />
+        </div>
+        <div class="item">
+          <p>Additional Message</p>
+          <textarea rows="3"></textarea>
+        </div> -->
+        <div class="btn-block">
+          <button type="submit" href="/">Send Application</button>
+        </div>
+      </form>
+    </div>
+
+
+    <!-- <script>
+        function openCity(evt, cityName) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablinks");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+          }
+          document.getElementById(cityName).style.display = "block";
+          evt.currentTarget.className += " active";
+        }
+    </script> -->
+</body>
+</html>
