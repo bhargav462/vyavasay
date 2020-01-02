@@ -60,9 +60,10 @@
                   alert(res);
               }else if(status === "success")
              {
-                 console.log("user");
+                 console.log(res);
                 alert("valid credentials");
-                document.querySelector(".popup").style.display = "none"; 
+                window.location.replace("main.html");
+                // document.querySelector(".popup").style.display = "none"; 
             }else{
                 alert("Invalid credentials");
              }

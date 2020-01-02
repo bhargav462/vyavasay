@@ -9,6 +9,7 @@ const hbs = require('hbs');
 const path = require('path');
 const publicPath = path.join(__dirname,'./public');
 
+const {crop} = require('./models/crop');
 const {user} = require('./models/user');
 
 mongoose.Promise = global.Promise;
@@ -35,28 +36,48 @@ app.post('/add',urlencodedParser,(req,res) => {
     console.log(req.body);
     newUser.save().then(() => {
         console.log('data was added successfully');
-        res.send('done');
+        return res.send('done');
     }).catch((e) => {
         console.log('User already exists or An error has occured');
         // res.sendStatus(404).send(e);
-        res.send(e);
+        return res.send(e);
     });
 });
+
+var aadhar;
 
 app.post('/check',urlencodedParser,(req,res) => {
     console.log('In');
     console.log(req.body);
+    aadhar = req.body.AadharNo;
     user.findOne({AadharNo:req.body.AadharNo,password:req.body.password}).then((user1) => {
         if(!user1){
             console.log("No user");
-            res.send("No user found");
+            return res.send("No user found");
         }else{
             console.log("user");
-            res.send(user1);
+            // res.send('done');
+            return res.redirect('/main.html');
         }
     }).catch((e) => {
         console.log("error");
-        res.sendStatus(404).send(e);
+        return res.sendStatus(404).send(e);
+    });
+});
+
+app.post('/crop',urlencodedParser,(req,res) => {
+    console.log(req.body);
+    console.log(aadhar);
+    // res.send('done');
+    var body = _.pick(req.body,['Name','AadharNo','CropArea','phoneNo','soilType','previousCrop','nutritionContent','waterAvailability','cropSeason','biometricId']);
+    var newCrop = new crop(body);
+    console.log(newCrop);
+    newCrop.save().then(() => {
+        console.log('data');
+        return res.send('done');
+    }).catch((e) => {
+        console.log(e);
+         return res.send(e);
     });
 });
 

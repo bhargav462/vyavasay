@@ -3,6 +3,10 @@
     margin: 0;
 }
  
+body{
+    background-image: url("../images/bgd1.jpg");
+}
+
 header{
     height: 130px;
     background-color:#e4e4e4;
@@ -61,7 +65,7 @@ header h1{
 /* html, body {
     min-height: 100%;
     } */
-    div, form, input, select, textarea, p { 
+    div, #mrof, input, select, textarea, p { 
     padding: 0;
     margin: 0;
     outline: none;
@@ -84,7 +88,7 @@ header h1{
     height: inherit;
     padding: 20px;
     }
-    form {
+    #mrof {
     width: 100%;
     padding: 20px;
     border-radius: 6px;
