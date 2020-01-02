@@ -12,7 +12,7 @@ const publicPath = path.join(__dirname,'./public');
 const {user} = require('./models/user');
 
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost:27017/Alumini");
+mongoose.connect("mongodb://localhost:27017/vyavasay");
 
 const app = express();
 
@@ -23,7 +23,7 @@ app.use(express.static(publicPath));
 // app.set('view engine', 'html');
 
 app.get('/',(req,res) => {
-    res.render('index.html',{});
+    res.render('index.html');
     console.log('Rendering the front page');
 });
 

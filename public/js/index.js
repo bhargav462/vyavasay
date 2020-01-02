@@ -12,7 +12,7 @@
 
     document.querySelector(".close-reg").addEventListener("click",function(){
         document.querySelector(".popup-reg").style.display = "none"; 
-     });
+    });
 
 
 // function closePopUp() {
