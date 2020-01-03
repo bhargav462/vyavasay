@@ -10,10 +10,44 @@ var cropForm = function(){
     var cropSeason = $("select[name='season']").val();
     var biometricId = $("input[name='biometric']").val();
     $.post('/crop',{Name,AadharNo,CropArea,phoneNo,soilType,previousCrop,nutritionContent,waterAvailability,cropSeason,biometricId},function(res,status){
-      if(res === "done")
+      if(res)
       {
-          alert("Data was successfully added");
+
+        if(previousCrop === "not")
+        {
+            previousCrop = "Not Available";
+        }
+          console.log('res',res);
+          alert(res);
+
+          var table = document.getElementById("res");
+
+          table.innerHTML = "<table>" +
+          "<tr><td>Farmer Name</td>" +
+            "<td>" + Name + "</td></tr>" +
+          "<tr><td>Soil Type</td>" +
+            "<td>" + soilType + "</td></tr>" +
+          "<tr><td>Nutrition Content</td>" +
+            "<td>" + nutritionContent + "</td></tr>" +
+          "<tr><td>Previous Crop</td>" +
+            "<td>" + previousCrop + "</td></tr>" +
+          "<tr><td>Crop Season</td>" +
+            "<td>" + cropSeason + "</td></tr>" +
+          "<tr><td>Next Crop</td>" +
+           "<td>" + res + "</td></tr>" +
+        "</table>";
+          
+        //   var node = document.createElement("LI");
+        //   var textnode = document.createTextNode("Water");
+        //   node.appendChild(textnode);
+        //   document.getElementById("res").appendChild(node);
+
+        //   var node = document.createElement("LI");
+        //   var textnode = document.createTextNode("Water");
+
+
       }else{
+          console.log('res',res);
           alert("Unsuccessful attempt");
       }
     });

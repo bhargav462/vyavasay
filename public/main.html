@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="./styles/indexs.css">
     <script src="./js/utils/jquery.js"></script>
     <script src="./js/mainJs.js"></script>
+    <style>
+      #res table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      #res td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      #res tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      
+      #res tr:hover{
+       background-color:green;
+      }
+      </style>
     <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
     <title>Form</title>
@@ -84,12 +105,10 @@
             <select name="soil">
                 <option value="Alluvium">Alluvium Soil</option>  
                 <option value="Black">Black soil</option>
-                <option value="Red">Red soil</option>
-                <option value="Yellow">Yellow soil</option>
+                <option value="RedYellow">Red and Yellow soil</option>
                 <option value="Laterite">Laterite soil</option>
                 <option value="Arial">Arial soil</option>
-                <option value="Forest">Forest soil</option>
-                <option value="Mountain">Mountain soil</option>
+                <option value="ForestMountain">Forest and Mountain soil</option>
             </select>
         </div>
         <div class="item">
@@ -198,7 +217,9 @@
         </div> -->
         <div class="btn-block">
           <button type="submit" onclick="cropForm()">Send Application</button>
-        </div>
+        </div><br>
+
+        <div id="res"></p>
     </div>  
       <!-- </form> -->
     </div>

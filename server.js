@@ -11,6 +11,7 @@ const publicPath = path.join(__dirname,'./public');
 
 const {crop} = require('./models/crop');
 const {user} = require('./models/user');
+const {cropData} = require('./models/cropData');
 
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost:27017/vyavasay");
@@ -74,12 +75,50 @@ app.post('/crop',urlencodedParser,(req,res) => {
     console.log(newCrop);
     newCrop.save().then(() => {
         console.log('data');
-        return res.send('done');
+        cropData.findOne({
+            soilType:req.body.soilType,
+            nutritionContent: req.body.nutritionContent,
+            previousCrop:req.body.previousCrop,
+            cropSeason:req.body.cropSeason
+        }).then((data) => {
+        console.log(data);
+        if(!data){
+            console.log('No data found for your request');
+            return res.send();
+        }else{
+            console.log('nextCrop',data.nextCrop);
+            // res.send(data.nextCrop);
+            res.send(data.nextCrop);
+            // next();
+        }
+    });
     }).catch((e) => {
-        console.log(e);
+        console.log(e); 
          return res.send(e);
     });
 });
+
+// app.post('/addcheckCrop',(req,res) => {
+//    var jsonData =  {
+//     "Sheet1": [
+//         {
+//             "soilType": "ALLUVIAL SOIL",
+//             "nutritionContent": "PHOSPHORUS",
+//             "previousCrop": "GROUNDNUT",
+//             "cropSeason": "RABI",
+//             "nextCrop": "COTTON"
+//         },
+//         {
+//             "soilType": "ALLUVIAL SOIL",
+//             "nutritionContent": "PHOSPHORUS",
+//             "previousCrop": "RICE",
+//             "cropSeason": "RABI",
+//             "nextCrop": "GROUNDNUT"
+//         },
+//        ]
+//     }
+    
+// });
 
 app.listen(3001,() => {
     console.log(`Server is up on port ${3001}`);
